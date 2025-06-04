@@ -1,7 +1,7 @@
 "use server";
 
-export async function getStrapiPageBySlug(slug) {
-   const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/legals?filters[slug][$eq]=${slug}&populate=*`;
+export async function getStrapiCollectionBySlug(collection, slug) {
+   const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${collection}?filters[slug][$eq]=${slug}&populate=*`;
    const res = await fetch(url, { cache: "no-store" }); // SSR
 
    if (!res.ok) throw new Error("Erreur Strapi");

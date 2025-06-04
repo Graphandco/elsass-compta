@@ -9,7 +9,7 @@ export default function Prestations({ title, description, prestations }) {
                <h2 className="text-5xl text-primary font-normal">{title}</h2>
                <p className="">{description}</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
                {prestations.map((prestation) => (
                   <div key={prestation.id} className="bg-white p-5 rounded-lg ">
                      <div className="flex items-center justify-between gap-2">
