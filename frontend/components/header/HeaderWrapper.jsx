@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import Dropdown from "./Dropdown";
 import { getStrapiCollections } from "@/actions/getStrapiCollections";
+import HeaderNav from "./HeaderNav";
 
-export default async function HeaderWrapper() {
+export default async function Header() {
    const prestations = await getStrapiCollections("prestations");
 
    return (
@@ -11,25 +11,7 @@ export default async function HeaderWrapper() {
          <Link href="/">
             <Image src="/logo.svg" alt="Logo" width={100} height={100} />
          </Link>
-         <nav className="hidden md:block">
-            <ul className="flex gap-5">
-               <li>
-                  <Link className="text-secondary" href="/">
-                     Accueil
-                  </Link>
-               </li>
-               <li>
-                  <Link href="/">Le cabinet</Link>
-               </li>
-               <Dropdown prestations={prestations} />
-               <li>
-                  <Link href="/">Actualités</Link>
-               </li>
-               <li>
-                  <Link href="/">Contact</Link>
-               </li>
-            </ul>
-         </nav>
+         <HeaderNav prestations={prestations} />
       </header>
    );
 }

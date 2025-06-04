@@ -1,11 +1,7 @@
-import { Geist, Geist_Mono, Jost } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
-import HeaderWrapper from "@/components/header/HeaderWrapper";
-
-const geistSans = Geist({
-   variable: "--font-geist-sans",
-   subsets: ["latin"],
-});
+import Header from "@/components/header/HeaderWrapper";
+import Footer from "@/components/footer/FooterWrapper";
 
 const jost = Jost({
    variable: "--font-jost",
@@ -20,9 +16,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
    return (
       <html lang="en">
-         <body className={` ${jost.variable}`}>
-            <HeaderWrapper />
-            {children}
+         <body className={`${jost.variable} min-h-screen flex flex-col`}>
+            <Header />
+            <main className="grow">{children}</main>
+            <Footer />
          </body>
       </html>
    );
