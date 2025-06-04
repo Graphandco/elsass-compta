@@ -12,7 +12,7 @@ export default function Hero({
    return (
       <div className="wrapper">
          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10">
-            <div className="text-6xl ">
+            <div className="text-6xl font-normal">
                <span className="text-secondary">{lead1} </span>
                <span className="text-primary">{lead2}</span>
             </div>

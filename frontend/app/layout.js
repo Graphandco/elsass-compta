@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Jost } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import HeaderWrapper from "@/components/header/HeaderWrapper";
 
 const geistSans = Geist({
    variable: "--font-geist-sans",
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
    return (
       <html lang="en">
          <body className={` ${jost.variable}`}>
-            <Header />
+            <HeaderWrapper />
             {children}
          </body>
       </html>

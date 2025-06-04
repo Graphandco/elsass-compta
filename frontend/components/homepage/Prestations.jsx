@@ -11,7 +11,11 @@ export default function Prestations({ title, description, prestations }) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
                {prestations.map((prestation) => (
-                  <div key={prestation.id} className="bg-white p-5 rounded-lg ">
+                  <Link
+                     key={prestation.id}
+                     href={`/prestations/${prestation.slug}`}
+                     className="bg-white p-5 rounded-lg border border-transparent hover:border-primary transition-all"
+                  >
                      <div className="flex items-center justify-between gap-2">
                         <Image
                            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${prestation?.icon?.url}`}
@@ -20,15 +24,13 @@ export default function Prestations({ title, description, prestations }) {
                            height={prestation?.icon?.height}
                            className="h-10 w-auto"
                         />
-                        <Link href={`/prestations/${prestation.slug}`}>
-                           <ArrowUpRight />
-                        </Link>
+                        <ArrowUpRight />
                      </div>
                      <h3 className="text-lg text-primary font-normal mt-3 mb-2">
                         {prestation.title}
                      </h3>
                      <p className="text-sm">{prestation.short_description}</p>
-                  </div>
+                  </Link>
                ))}
             </div>
          </div>
