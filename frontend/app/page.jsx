@@ -3,6 +3,7 @@ import { getStrapiCollections } from "@/actions/getStrapiCollections";
 
 import Hero from "@/components/homepage/Hero";
 import Prestations from "@/components/homepage/Prestations";
+import Valeurs from "@/components/homepage/Valeurs";
 
 // export async function generateMetadata() {
 //    const hero = await getStrapiUnique({ type: "page-d-accueil" });
@@ -27,7 +28,7 @@ export default async function Home() {
       home_presta_description,
    } = home;
 
-   const prestations = await getStrapiCollections("prestations");
+   const valeurs = await getStrapiCollections("valeurs");
 
    return (
       <div>
@@ -42,8 +43,8 @@ export default async function Home() {
          <Prestations
             title={home_presta_title}
             description={home_presta_description}
-            prestations={prestations}
          />
+         <Valeurs valeurs={valeurs} />
       </div>
    );
 }

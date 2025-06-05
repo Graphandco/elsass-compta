@@ -3,18 +3,21 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
-export default function Dropdown({ prestations }) {
+export default function Dropdown({ prestations, pathname }) {
    const [open, setOpen] = useState(false);
-
-   console.log(prestations);
 
    return (
       <li
          onMouseEnter={() => setOpen(true)}
          onMouseLeave={() => setOpen(false)}
-         className="relative "
+         className={`relative hover:text-secondary ${
+            pathname === "/prestations" ||
+            pathname.startsWith("/prestations" + "/")
+               ? "text-secondary"
+               : "text-foreground"
+         }`}
       >
-         <a href="#">Prestations</a>
+         <Link href="/prestations">Prestations</Link>
          <AnimatePresence>
             {open && (
                <motion.nav

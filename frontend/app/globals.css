@@ -112,3 +112,9 @@
    padding-inline: 5vw;
    margin-inline: auto;
 }
+
+@layer utilities {
+   .bg-inherit::after {
+      background-image: inherit;
+   }
+}

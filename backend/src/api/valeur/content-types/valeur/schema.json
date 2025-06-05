@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "valeurs",
+  "info": {
+    "singularName": "valeur",
+    "pluralName": "valeurs",
+    "displayName": "Nos valeurs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

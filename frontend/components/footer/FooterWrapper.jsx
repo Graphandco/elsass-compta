@@ -40,7 +40,17 @@ export default function Footer() {
                <Link href="/politique-confidentialite">
                   Politique de confidentialité
                </Link>
-               <Link href="https://graphandco.com" target="blank">
+               <Link
+                  href="https://graphandco.com"
+                  target="blank"
+                  className="flex items-center gap-2"
+               >
+                  <Image
+                     src="/logo-graphandco.svg"
+                     width={20}
+                     height={20}
+                     alt="Graph and Co"
+                  />{" "}
                   Réalisation Graph and Co
                </Link>
             </div>
