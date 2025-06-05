@@ -2,7 +2,9 @@ import { getStrapiCollections } from "@/actions/getStrapiCollections";
 import ActuCard from "@/components/ActuCard";
 
 export default async function Actualites() {
-   const actualites = (await getStrapiCollections("actualites")).reverse();
+   const actualites = (await getStrapiCollections("actualites")).sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+   );
 
    return (
       <div className="bg-primary-light">
@@ -20,7 +22,7 @@ export default async function Actualites() {
                   <li>Des mises à jour légales et réglementaires</li>
                </ul>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5">
                {actualites.map((actu) => (
                   <ActuCard key={actu.id} actu={actu} />
                ))}

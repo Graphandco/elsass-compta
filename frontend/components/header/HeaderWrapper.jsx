@@ -4,8 +4,9 @@ import { getStrapiCollections } from "@/actions/getStrapiCollections";
 import HeaderNav from "./HeaderNav";
 
 export default async function Header() {
-   const prestations = (await getStrapiCollections("prestations")).reverse();
-
+   const prestations = (await getStrapiCollections("prestations")).sort(
+      (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+   );
    return (
       <header className="wrapper flex justify-between items-center py-5 mb-5">
          <Link href="/">

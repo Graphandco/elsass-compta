@@ -114,7 +114,7 @@
 }
 
 @layer utilities {
-   .bg-inherit::after {
+   .after-bg-inherit::after {
       background-image: inherit;
    }
 }

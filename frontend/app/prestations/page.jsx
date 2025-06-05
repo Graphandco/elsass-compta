@@ -2,7 +2,9 @@ import { getStrapiCollections } from "@/actions/getStrapiCollections";
 import PrestationCard from "@/components/homepage/PrestationCard";
 
 export default async function Prestations() {
-   const prestations = (await getStrapiCollections("prestations")).reverse();
+   const prestations = (await getStrapiCollections("prestations")).sort(
+      (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+   );
 
    return (
       <section className="wrapper pb-20">
