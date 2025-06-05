@@ -1,16 +1,36 @@
+"use client";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Valeurs({ valeurs }) {
+   const sectionRef = useRef(null);
+   const { scrollYProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"],
+   });
+
+   const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+   const yCard = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+   const yButton = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+
    return (
-      <section className="wrapper py-20">
-         <h2 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">
+      <section ref={sectionRef} className="wrapper py-20">
+         <motion.h2
+            style={{ y: yTitle }}
+            className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl relative z-10"
+         >
             Nos valeurs
-         </h2>
+         </motion.h2>
+
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-14">
             {valeurs.map((valeur) => (
-               <div
+               <motion.div
                   key={valeur.id}
-                  className="border border-neutral-400 p-3 rounded-lg shadow-md"
+                  style={{ y: yCard }}
+                  className="border bg-white border-neutral-400 p-3 rounded-lg shadow-md"
                >
                   <Image
                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${valeur?.image?.url}`}
@@ -22,10 +42,15 @@ export default function Valeurs({ valeurs }) {
                   <h3 className="text-primary font-normal text-xl md:text-2xl mt-3 mb-1">
                      {valeur.title}
                   </h3>
-                  <p className="">{valeur.description}</p>
-               </div>
+                  <p>{valeur.description}</p>
+               </motion.div>
             ))}
          </div>
+         <motion.div className="text-center md:mt-5" style={{ y: yButton }}>
+            <Button asChild>
+               <Link href="/cabinet">Découvrez notre équipe</Link>
+            </Button>
+         </motion.div>
       </section>
    );
 }

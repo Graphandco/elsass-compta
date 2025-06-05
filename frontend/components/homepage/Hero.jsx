@@ -13,7 +13,7 @@ export default function Hero({
    return (
       <section className="wrapper mt-5">
          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10">
-            <div className="text-6xl font-normal">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-normal">
                <span className="text-secondary">{lead1} </span>
                <span className="text-primary">{lead2}</span>
             </div>
@@ -45,7 +45,7 @@ export default function Hero({
                   height={image2.height}
                   className="hidden sm:block rounded-lg object-cover"
                />
-               <p className="mt-3">{descriptionLast}</p>
+               <p className="mt-3 sm:mt-0 md:mt-3">{descriptionLast}</p>
             </div>
          </div>
       </section>
