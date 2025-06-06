@@ -4,9 +4,24 @@ import Link from "next/link";
 
 export default function Footer() {
    return (
-      <footer className="bg-primary text-primary-very-light py-10">
-         <div className="wrapper-small grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center">
+      <footer className="bg-black text-primary-very-light py-10">
+         <div className="wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20">
             <div className="">
+               <div className="text-xl font-normal text-white mb-3">
+                  Votre expert-comptable de confiance au cœur de l’Alsace.
+               </div>
+               <Link href="/" className="mt-5">
+                  <Image
+                     src="/logo-blanc.png"
+                     alt="Logo"
+                     width={100}
+                     height={100}
+                     className=""
+                  />
+               </Link>
+            </div>
+            {/* Nous contacter */}
+            <div className="text-neutral-400">
                <div className="text-xl font-normal text-white mb-3">
                   Nous contacter
                </div>
@@ -25,25 +40,25 @@ export default function Footer() {
                   <Mail size={16} /> contact@elsass-compta.fr
                </a>
             </div>
-            <Link href="/" className="hidden md:block ">
-               <Image
-                  src="/logo-blanc.png"
-                  alt="Logo"
-                  width={150}
-                  height={150}
-                  className="self-center justify-self-center"
-               />
-            </Link>
-            <div className="sm:justify-self-end sm:self-start grid mt-5 sm:mt-0">
+            {/* Liens */}
+            <div className=" text-neutral-400">
                <div className="text-xl font-normal text-white mb-3">Liens</div>
-               <Link href="/mentions-legales">Mentions légales</Link>
-               <Link href="/politique-confidentialite">
+               <Link
+                  className="block hover:text-secondary"
+                  href="/mentions-legales"
+               >
+                  Mentions légales
+               </Link>
+               <Link
+                  className="block hover:text-secondary"
+                  href="/politique-de-confidentialite"
+               >
                   Politique de confidentialité
                </Link>
                <Link
                   href="https://graphandco.com"
                   target="blank"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 hover:text-secondary"
                >
                   <Image
                      src="/logo-graphandco.svg"

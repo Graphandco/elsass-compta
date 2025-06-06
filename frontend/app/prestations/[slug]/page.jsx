@@ -13,7 +13,7 @@ export default async function Prestation({ params }) {
 
    return (
       <>
-         <section className="wrapper pt-5">
+         <section className="wrapper pt-10">
             <PrestationsHeader prestation={prestation} />
          </section>
          <section

@@ -8,9 +8,9 @@ export default async function Header() {
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
    );
    return (
-      <header className="wrapper flex justify-between items-center py-5 mb-5">
+      <header className="wrapper flex justify-between items-center py-5 border-b border-black/5">
          <Link href="/">
-            <Image src="/logo.svg" alt="Logo" width={100} height={100} />
+            <Image src="/logo.svg" alt="Logo" width={90} height={90} />
          </Link>
          <HeaderNav prestations={prestations} />
       </header>

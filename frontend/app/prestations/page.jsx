@@ -1,13 +1,16 @@
 import { getStrapiCollections } from "@/actions/getStrapiCollections";
+import { getStrapiUnique } from "@/actions/getStrapiUnique";
 import PrestationCard from "@/components/homepage/PrestationCard";
+import Outils from "@/components/prestations/Outils";
 
 export default async function Prestations() {
    const prestations = (await getStrapiCollections("prestations")).sort(
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
    );
+   const outils = await getStrapiUnique({ type: "outil" });
 
    return (
-      <section className="wrapper pb-20">
+      <section className="wrapper pt-10 pb-20">
          <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">
             Nos prestations
          </h1>
@@ -20,6 +23,7 @@ export default async function Prestations() {
                />
             ))}
          </div>
+         <Outils outils={outils} />
       </section>
    );
 }
