@@ -7,7 +7,7 @@ export default function HeaderNav({ prestations }) {
    const pathname = usePathname();
 
    return (
-      <nav className="hidden md:block">
+      <nav className="hidden sm:block">
          <ul className="flex gap-5 font-normal">
             <li>
                <Link
