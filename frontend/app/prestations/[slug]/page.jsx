@@ -1,7 +1,7 @@
 import { getStrapiCollectionBySlug } from "@/actions/getStrapiCollections";
 import Image from "next/image";
 import { marked } from "marked";
-import PrestationsHeader from "@/components/prestations/PrestationsHeader";
+import PrestationHeader from "@/components/prestation/PrestationHeader";
 
 export default async function Prestation({ params }) {
    const prestation = await getStrapiCollectionBySlug(
@@ -14,7 +14,7 @@ export default async function Prestation({ params }) {
    return (
       <>
          <section className="wrapper pt-10">
-            <PrestationsHeader prestation={prestation} />
+            <PrestationHeader prestation={prestation} />
          </section>
          <section
             className="wrapper mt-10 mb-20 prose"

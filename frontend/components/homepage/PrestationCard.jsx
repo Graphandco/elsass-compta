@@ -7,7 +7,7 @@ export default function PrestationCard({ prestation, bg = "bg-white" }) {
       <Link
          key={prestation.id}
          href={`/prestations/${prestation.slug}`}
-         className={`${bg} p-5 rounded-lg border border-transparent hover:border-primary transition-all`}
+         className={`${bg} block h-full p-5 rounded-lg border border-transparent hover:border-primary transition-all`}
       >
          <div className="flex items-center justify-between gap-2">
             <Image

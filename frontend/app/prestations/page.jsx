@@ -1,5 +1,6 @@
 import { getStrapiCollections } from "@/actions/getStrapiCollections";
 import { getStrapiUnique } from "@/actions/getStrapiUnique";
+import FadeInOnView from "@/components/FadeInOnView";
 import PrestationCard from "@/components/homepage/PrestationCard";
 import Outils from "@/components/prestations/Outils";
 
@@ -10,20 +11,22 @@ export default async function Prestations() {
    const outils = await getStrapiUnique({ type: "outil" });
 
    return (
-      <section className="wrapper pt-10 pb-20">
-         <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">
-            Nos prestations
-         </h1>
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
-            {prestations.map((prestation) => (
-               <PrestationCard
-                  key={prestation.id}
-                  prestation={prestation}
-                  bg="bg-primary-light"
-               />
-            ))}
-         </div>
+      <>
+         <section className="wrapper pt-10 pb-20">
+            <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">
+               Nos prestations
+            </h1>
+            <FadeInOnView className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
+               {prestations.map((prestation) => (
+                  <PrestationCard
+                     key={prestation.id}
+                     prestation={prestation}
+                     bg="bg-primary-light"
+                  />
+               ))}
+            </FadeInOnView>
+         </section>
          <Outils outils={outils} />
-      </section>
+      </>
    );
 }

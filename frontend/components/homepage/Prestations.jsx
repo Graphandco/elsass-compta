@@ -1,6 +1,7 @@
 import { getStrapiCollections } from "@/actions/getStrapiCollections";
-
 import PrestationCard from "@/components/homepage/PrestationCard";
+
+import FadeInOnView from "@/components/FadeInOnView";
 
 export default async function Prestations({ title, description }) {
    const prestations = (await getStrapiCollections("prestations")).sort(
@@ -15,11 +16,11 @@ export default async function Prestations({ title, description }) {
                </h2>
                <p className="">{description}</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
+            <FadeInOnView className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-14">
                {prestations.map((prestation) => (
                   <PrestationCard key={prestation.id} prestation={prestation} />
                ))}
-            </div>
+            </FadeInOnView>
          </div>
       </div>
    );
