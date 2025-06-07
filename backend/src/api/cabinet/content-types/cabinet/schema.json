@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "cabinets",
+  "info": {
+    "singularName": "cabinet",
+    "pluralName": "cabinets",
+    "displayName": "Page cabinet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "qui_sommes_nous_title": {
+      "type": "string"
+    },
+    "qui_sommes_nous_content": {
+      "type": "richtext"
+    },
+    "qui_sommes_nous_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "clients_title": {
+      "type": "string"
+    },
+    "clients_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "clients_content": {
+      "type": "richtext"
+    }
+  }
+}

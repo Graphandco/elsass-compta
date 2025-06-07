@@ -1,7 +1,6 @@
 import { getStrapiCollectionBySlug } from "@/actions/getStrapiCollections";
-import Image from "next/image";
 import { marked } from "marked";
-import PrestationHeader from "@/components/prestation/PrestationHeader";
+import PrestationHeader from "@/components/prestations/PrestationHeader";
 
 export default async function Prestation({ params }) {
    const prestation = await getStrapiCollectionBySlug(
@@ -13,11 +12,11 @@ export default async function Prestation({ params }) {
 
    return (
       <>
-         <section className="wrapper pt-10">
+         <section className="wrapper pt-10 md:pt-20">
             <PrestationHeader prestation={prestation} />
          </section>
          <section
-            className="wrapper mt-10 mb-20 prose"
+            className="wrapper mt-20 mb-20 prose"
             dangerouslySetInnerHTML={{
                __html: marked.parse(prestation.content || ""),
             }}

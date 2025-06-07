@@ -11,8 +11,8 @@ export default function Hero({
    descriptionLast,
 }) {
    return (
-      <section className="wrapper mt-15">
-         <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10">
+      <section className="wrapper mt-10 sm:mt-15">
+         <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-5 sm:gap-10">
             <div className="text-4xl sm:text-5xl md:text-6xl font-normal">
                <span className="text-secondary">{lead1} </span>
                <span className="text-primary">{lead2}</span>

@@ -8,7 +8,7 @@ export default async function Actualites() {
 
    return (
       <div className="bg-primary-light">
-         <div className="wrapper py-10">
+         <div className="wrapper py-10 md:py-20">
             <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl mb-10">
                Les actualités
             </h1>

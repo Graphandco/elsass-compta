@@ -12,7 +12,7 @@ export default async function Prestations() {
 
    return (
       <>
-         <section className="wrapper pt-10 pb-20">
+         <section className="wrapper pt-10 md:pt-20 pb-20">
             <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">
                Nos prestations
             </h1>

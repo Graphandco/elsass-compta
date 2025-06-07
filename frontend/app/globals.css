@@ -118,4 +118,13 @@
    .after-bg-inherit::after {
       background-image: inherit;
    }
+   .prose {
+      max-width: 66ch;
+   }
+   .prose strong {
+      font-weight: 400;
+   }
+   .prose h2 {
+      font-weight: 500;
+   }
 }

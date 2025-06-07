@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
          <body className={`${jost.variable} min-h-screen flex flex-col`}>
             <Header />
-            <main className="grow">{children}</main>
+            <main className="grow grid">{children}</main>
             <Footer />
          </body>
       </html>
