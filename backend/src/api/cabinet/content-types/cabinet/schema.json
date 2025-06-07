@@ -46,16 +46,20 @@
       "type": "string"
     },
     "clients_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "clients_content": {
+      "type": "richtext"
+    },
+    "description": {
       "type": "richtext"
     }
   }
