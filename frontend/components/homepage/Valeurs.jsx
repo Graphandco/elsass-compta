@@ -19,9 +19,11 @@ export default function Valeurs({ valeurs }) {
 
    return (
       <section className="wrapper py-20">
-         <h2 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl relative z-10">
-            Nos valeurs
-         </h2>
+         <FadeInOnView>
+            <h2 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl relative z-10">
+               Nos valeurs
+            </h2>
+         </FadeInOnView>
 
          <FadeInOnView className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-14">
             {valeurs.map((valeur) => (
@@ -43,11 +45,11 @@ export default function Valeurs({ valeurs }) {
                </div>
             ))}
          </FadeInOnView>
-         <div className="text-center mt-10">
+         <FadeInOnView className="text-center mt-10">
             <Button asChild>
                <Link href="/cabinet">Découvrez notre équipe</Link>
             </Button>
-         </div>
+         </FadeInOnView>
       </section>
    );
 }

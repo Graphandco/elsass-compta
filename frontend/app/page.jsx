@@ -5,15 +5,15 @@ import Hero from "@/components/homepage/Hero";
 import Prestations from "@/components/homepage/Prestations";
 import Valeurs from "@/components/homepage/Valeurs";
 
-// export async function generateMetadata() {
-//    const hero = await getStrapiUnique({ type: "page-d-accueil" });
-//    return {
-//       title: hero.meta_title || "Accueil",
-//       description: (hero.meta_description || "")
-//          .replace(/[#*]/g, "")
-//          .slice(0, 160),
-//    };
-// }
+export async function generateMetadata() {
+   const home = await getStrapiUnique({ type: "homepage" });
+   return {
+      title: home.meta_title || "Accueil",
+      description: (home.meta_description || "")
+         .replace(/[#*]/g, "")
+         .slice(0, 160),
+   };
+}
 
 export default async function Home() {
    const home = await getStrapiUnique({ type: "homepage" });

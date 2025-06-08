@@ -9,7 +9,10 @@ export default async function Header() {
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
    );
    return (
-      <header className="wrapper flex justify-between items-center py-2 sm:py-4 border-b border-black/5 z-50">
+      <header
+         id="header"
+         className="wrapper flex justify-between items-center py-2 sm:py-4 border-b border-black/5 z-50"
+      >
          <Link href="/">
             <Image
                src="/logo.svg"

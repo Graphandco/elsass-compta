@@ -1,6 +1,9 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import FadeInOnView from "../FadeInOnView";
+import { useEffect, useState } from "react";
 
 export default function Hero({
    lead1,
@@ -10,14 +13,28 @@ export default function Hero({
    image2,
    descriptionLast,
 }) {
+   const [headerHeight, setHeaderHeight] = useState(0);
+   useEffect(() => {
+      const header = document.getElementById("header");
+      if (header) {
+         setHeaderHeight(header.offsetHeight);
+      }
+   }, []);
    return (
-      <section className="wrapper mt-10 sm:mt-15">
+      <section
+         className="wrapper pt-10 sm:pt-15"
+         style={{
+            minHeight: `calc(100vh - ${headerHeight}px)`,
+         }}
+      >
          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-5 sm:gap-10">
-            <div className="text-4xl sm:text-5xl md:text-6xl font-normal">
-               <span className="text-secondary">{lead1} </span>
-               <span className="text-primary">{lead2}</span>
-            </div>
-            <div className="">
+            <FadeInOnView>
+               <div className="text-4xl sm:text-5xl md:text-6xl font-normal">
+                  <span className="text-secondary">{lead1} </span>
+                  <span className="text-primary">{lead2}</span>
+               </div>
+            </FadeInOnView>
+            <FadeInOnView>
                <p className="text-lg">{description}</p>
                <div className="flex gap-5 mt-5">
                   <Button asChild>
@@ -27,9 +44,9 @@ export default function Hero({
                      <Link href="/prestations">Voir nos prestations</Link>
                   </Button>
                </div>
-            </div>
+            </FadeInOnView>
          </div>
-         <div className="grid md:grid-cols-[2fr_1fr] gap-10 mt-16">
+         <FadeInOnView className="grid md:grid-cols-[2fr_1fr] gap-10 mt-16">
             <Image
                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image1?.url}`}
                alt="Hero"
@@ -47,7 +64,7 @@ export default function Hero({
                />
                <p className="mt-3 sm:mt-0 md:mt-3">{descriptionLast}</p>
             </div>
-         </div>
+         </FadeInOnView>
       </section>
    );
 }

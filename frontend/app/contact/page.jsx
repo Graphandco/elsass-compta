@@ -2,6 +2,16 @@ import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
 import { getStrapiUnique } from "@/actions/getStrapiUnique";
 
+export async function generateMetadata() {
+   const contact = await getStrapiUnique({ type: "contact" });
+   return {
+      title: contact.meta_title || "Nous contacter",
+      description: (contact.meta_description || "")
+         .replace(/[#*]/g, "")
+         .slice(0, 160),
+   };
+}
+
 export default async function Contact() {
    const contact = await getStrapiUnique({ type: "contact" });
 
