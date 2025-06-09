@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import ActuCard from "@/components/ActuCard";
 import { Button } from "@/components/ui/button";
+import FadeInOnView from "@/components/FadeInOnView";
 
 export default async function Actualites() {
    const actualites = (await getStrapiCollections("actualites")).sort(
@@ -15,7 +16,7 @@ export default async function Actualites() {
    });
 
    return (
-      <div className="bg-primary-light">
+      <FadeInOnView className="bg-primary-light">
          <div className="wrapper py-10 md:py-20">
             <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl mb-10">
                Les actualités
@@ -35,6 +36,6 @@ export default async function Actualites() {
                ))}
             </div>
          </div>
-      </div>
+      </FadeInOnView>
    );
 }

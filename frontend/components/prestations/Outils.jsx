@@ -3,7 +3,6 @@ import Image from "next/image";
 import FadeInOnView from "@/components/FadeInOnView";
 
 export default function Outils({ outils }) {
-   console.log(outils);
    return (
       <section className="bg-primary-light">
          <div className="wrapper py-20">

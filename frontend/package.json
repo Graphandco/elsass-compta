@@ -19,6 +19,7 @@
     "lucide-react": "^0.511.0",
     "marked": "^15.0.12",
     "next": "15.3.3",
+    "next-sitemap": "^4.2.3",
     "npm": "^11.4.1",
     "postcss": "^8.5.4",
     "react": "^19.0.0",
