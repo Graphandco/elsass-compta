@@ -4,6 +4,7 @@ import { getStrapiCollections } from "@/actions/getStrapiCollections";
 import Hero from "@/components/homepage/Hero";
 import Prestations from "@/components/homepage/Prestations";
 import Valeurs from "@/components/homepage/Valeurs";
+import VousEtes from "@/components/homepage/VousEtes";
 
 export async function generateMetadata() {
    const home = await getStrapiUnique({ type: "homepage" });
@@ -44,6 +45,7 @@ export default async function Home() {
             title={home_presta_title}
             description={home_presta_description}
          />
+         <VousEtes />
          <Valeurs valeurs={valeurs} />
       </div>
    );

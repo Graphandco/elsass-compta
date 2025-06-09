@@ -405,6 +405,36 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiActusDescriptionActusDescription
+  extends Struct.SingleTypeSchema {
+  collectionName: 'actus_descriptions';
+  info: {
+    description: '';
+    displayName: 'Description des actualit\u00E9s';
+    pluralName: 'actus-descriptions';
+    singularName: 'actus-description';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::actus-description.actus-description'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCabinetCabinet extends Struct.SingleTypeSchema {
   collectionName: 'cabinets';
   info: {
@@ -1154,6 +1184,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::actualite.actualite': ApiActualiteActualite;
+      'api::actus-description.actus-description': ApiActusDescriptionActusDescription;
       'api::cabinet.cabinet': ApiCabinetCabinet;
       'api::contact.contact': ApiContactContact;
       'api::homepage.homepage': ApiHomepageHomepage;

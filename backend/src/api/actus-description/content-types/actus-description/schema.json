@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "actus_descriptions",
+  "info": {
+    "singularName": "actus-description",
+    "pluralName": "actus-descriptions",
+    "displayName": "Description des actualités",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

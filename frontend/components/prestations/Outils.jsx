@@ -5,7 +5,7 @@ import FadeInOnView from "@/components/FadeInOnView";
 export default function Outils({ outils }) {
    console.log(outils);
    return (
-      <section className="bg-black/5">
+      <section className="bg-primary-light">
          <div className="wrapper py-20">
             <FadeInOnView>
                <h2 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl">

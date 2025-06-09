@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SiMinutemailer } from "react-icons/si";
 import { AnimatePresence, motion } from "framer-motion";
 import FadeInOnView from "@/components/FadeInOnView";
+import { CheckCircleIcon } from "lucide-react";
 
 export default function ContactForm() {
    const [isEmailSent, setIsEmailSent] = useState(false);
@@ -49,8 +50,9 @@ export default function ContactForm() {
                transition={{ duration: 0.4, ease: "easeInOut" }}
                className=" bg-white text-primary self-center flex flex-col items-center justify-center p-6 rounded-lg text-center"
             >
-               <div className="text-3xl">Merci !</div>
+               <div className="text-3xl font-normal">Merci !</div>
                <div>Votre message a bien été envoyé.</div>
+               <CheckCircleIcon className="w-10 h-10 text-green-500 mt-5" />
             </motion.div>
          ) : (
             <motion.form
@@ -61,7 +63,7 @@ export default function ContactForm() {
                transition={{ duration: 0.4, ease: "easeInOut" }}
                onSubmit={handleSubmit(onSubmit)}
                // onSubmit={testSubmit}
-               className="max-w-xl w-full bg-white/10 p-10 rounded-lg grid items-center"
+               className="max-w-xl w-full bg-white p-10 rounded-lg grid items-center"
             >
                <FadeInOnView className="space-y-8">
                   <div>
@@ -122,7 +124,6 @@ export default function ContactForm() {
                      type="submit"
                      disabled={isSubmitting}
                      icon={<SiMinutemailer />}
-                     variant="secondary"
                      size="lg"
                   >
                      {isSubmitting ? "Envoi en cours..." : "Envoyer"}

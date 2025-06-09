@@ -22,11 +22,11 @@ export default function HeaderNav({ prestations }) {
             <li>
                <Link
                   className={`hover:text-secondary ${
-                     pathname === "cabinet" && "text-secondary"
+                     pathname === "/cabinet" && "text-secondary"
                   }`}
                   href="/cabinet"
                >
-                  Le cabinet
+                  Notre cabinet
                </Link>
             </li>
             <Dropdown prestations={prestations} pathname={pathname} />

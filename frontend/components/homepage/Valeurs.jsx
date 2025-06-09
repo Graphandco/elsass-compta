@@ -18,7 +18,7 @@ export default function Valeurs({ valeurs }) {
    // const yButton = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
    return (
-      <section className="wrapper py-20">
+      <section className="wrapper py-20 bg-primary-light">
          <FadeInOnView>
             <h2 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl relative z-10">
                Nos valeurs
@@ -29,7 +29,7 @@ export default function Valeurs({ valeurs }) {
             {valeurs.map((valeur) => (
                <div
                   key={valeur.id}
-                  className="h-full border bg-white border-neutral-400 p-3 rounded-lg shadow-md"
+                  className="h-full bg-white p-3 rounded-lg shadow-md"
                >
                   <Image
                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${valeur?.image?.url}`}

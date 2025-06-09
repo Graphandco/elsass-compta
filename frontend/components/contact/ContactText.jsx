@@ -5,11 +5,11 @@ import FadeInOnView from "@/components/FadeInOnView";
 export default function ContactText({ contact }) {
    return (
       <FadeInOnView className="space-y-10">
-         <h1 className="text-white font-normal text-3xl sm:text-4xl md:text-5xl mb-10">
+         <h1 className="text-primary font-normal text-3xl sm:text-4xl md:text-5xl mb-10">
             Nous contacter
          </h1>
          <div
-            className="text-lg prose text-neutral-200"
+            className="text-lg prose"
             dangerouslySetInnerHTML={{
                __html: marked.parse(contact.content || ""),
             }}
