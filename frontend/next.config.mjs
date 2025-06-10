@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    images: {
-      domains: ["localhost", "strapiback.graphandco.com"],
+      domains: ["localhost", "admin-elsass-compta.graphandco.net"],
       remotePatterns: [
          {
             protocol: "https",
-            hostname: "strapiback.graphandco.com",
+            hostname: "admin-elsass-compta.graphandco.net",
             pathname: "/uploads/**",
          },
       ],
