@@ -33,7 +33,7 @@ export default function Footer() {
                   />
                </Link> */}
             {/* Nous contacter */}
-            <div className="text-neutral-400">
+            <div className="text-neutral-400 text-center sm:text-left">
                <div className="text-xl font-normal text-white mb-3">
                   Nous contacter
                </div>
@@ -41,13 +41,13 @@ export default function Footer() {
                <div>68460 Lutterbach</div>
                <a
                   href="tel:0618774811"
-                  className="hover:text-secondary flex items-center gap-2"
+                  className="hover:text-secondary flex items-center gap-2 justify-center sm:justify-start"
                >
                   <Phone size={16} /> 06 18 77 48 11
                </a>
                <a
                   href="mailto:contact@elsass-compta.fr"
-                  className="hover:text-secondary flex items-center gap-2"
+                  className="hover:text-secondary flex items-center gap-2 justify-center sm:justify-start"
                >
                   <Mail size={16} /> contact@elsass-compta.fr
                </a>
