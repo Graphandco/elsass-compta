@@ -40,7 +40,7 @@ export default function Footer() {
                <div>Cité de l'Habitat Lot 40</div>
                <div>68460 Lutterbach</div>
                <a
-                  href="tel: 0389075600"
+                  href="tel:0389075600"
                   className="hover:text-secondary flex items-center gap-2 justify-center sm:justify-start"
                >
                   <Phone size={16} />  03 89 07 56 00
