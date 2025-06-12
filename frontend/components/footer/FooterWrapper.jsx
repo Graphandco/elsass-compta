@@ -40,10 +40,10 @@ export default function Footer() {
                <div>Cité de l'Habitat Lot 40</div>
                <div>68460 Lutterbach</div>
                <a
-                  href="tel:0618774811"
+                  href="tel: 0389075600"
                   className="hover:text-secondary flex items-center gap-2 justify-center sm:justify-start"
                >
-                  <Phone size={16} /> 06 18 77 48 11
+                  <Phone size={16} />  03 89 07 56 00
                </a>
                <a
                   href="mailto:contact@elsass-compta.fr"
