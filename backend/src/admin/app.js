@@ -27,6 +27,13 @@ const config = {
       // 'zh-Hans',
       // 'zh',
    ],
+   translations: {
+      fr: {
+         "Auth.form.welcome.subtitle": "Connectez-vous à votre compte",
+         "HomePage.header.subtitle": "Bienvenue sur votre tableau de bord",
+         // Ajoute ici toutes les clés que tu veux surcharger
+      },
+   },
 };
 
 const bootstrap = (app) => {
