@@ -10,9 +10,9 @@ export default function NosClients({ cabinet }) {
                {cabinet.clients_title}
             </h2>
          </FadeInOnView>
-         <FadeInOnView className="grid grid-cols-1 md:grid-cols-2 gap-10">
+         <FadeInOnView className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 sm:gap-20">
             <div
-               className="mt-10 mb-20 prose"
+               className="sm:mt-10 sm:mb-20 prose"
                dangerouslySetInnerHTML={{
                   __html: marked.parse(cabinet.clients_content || ""),
                }}

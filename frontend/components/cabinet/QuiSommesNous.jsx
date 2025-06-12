@@ -11,7 +11,7 @@ export default function QuiSommesNous({ cabinet }) {
                   {cabinet.qui_sommes_nous_title}
                </h2>
             </FadeInOnView>
-            <FadeInOnView className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <FadeInOnView className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 sm:gap-20">
                <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${
                      cabinet.qui_sommes_nous_image.url
@@ -22,7 +22,7 @@ export default function QuiSommesNous({ cabinet }) {
                   className="rounded-lg"
                />
                <div
-                  className="mt-10 mb-20 prose"
+                  className="py-10 sm:py-0 prose"
                   dangerouslySetInnerHTML={{
                      __html: marked.parse(
                         cabinet.qui_sommes_nous_content || ""

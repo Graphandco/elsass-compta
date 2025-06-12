@@ -30,7 +30,7 @@ export default function Hero({
          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-5 sm:gap-10">
             <FadeInOnView>
                <div className="text-4xl sm:text-5xl md:text-6xl font-normal">
-                  <span className="text-secondary">{lead1} </span>
+                  <span className="text-secondary font-semibold">{lead1} </span>
                   <span className="text-primary">{lead2}</span>
                </div>
             </FadeInOnView>
