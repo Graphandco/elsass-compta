@@ -20,6 +20,7 @@ export default async function Header() {
                width={90}
                height={90}
                className="w-16 h-16 sm:w-24 sm:h-24"
+               priority
             />
          </Link>
          <HeaderNav prestations={prestations} />

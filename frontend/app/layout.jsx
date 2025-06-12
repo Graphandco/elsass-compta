@@ -6,6 +6,9 @@ import Footer from "@/components/footer/FooterWrapper";
 const jost = Jost({
    variable: "--font-jost",
    subsets: ["latin"],
+   display: "swap",
+   preload: true,
+   weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {

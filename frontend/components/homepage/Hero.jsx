@@ -53,6 +53,7 @@ export default function Hero({
                width={image1.width}
                height={image1.height}
                className="rounded-lg"
+               priority
             />
             <div className="flex gap-5 md:block">
                <Image
@@ -61,6 +62,7 @@ export default function Hero({
                   width={image2.width}
                   height={image2.height}
                   className="hidden sm:block rounded-lg object-cover"
+                  priority
                />
                <p className="mt-3 sm:mt-0 md:mt-3">{descriptionLast}</p>
             </div>

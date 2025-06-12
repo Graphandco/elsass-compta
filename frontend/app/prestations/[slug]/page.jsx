@@ -1,12 +1,12 @@
 import { getStrapiCollectionBySlug } from "@/actions/getStrapiCollections";
 import { marked } from "marked";
 import PrestationHeader from "@/components/prestations/PrestationHeader";
+import { notFound } from "next/navigation";
 
 export default async function Prestation({ params }) {
-   const prestation = await getStrapiCollectionBySlug(
-      "prestations",
-      params.slug
-   );
+   const { slug } = await params;
+
+   const prestation = await getStrapiCollectionBySlug("prestations", slug);
 
    if (!prestation) return notFound();
 
