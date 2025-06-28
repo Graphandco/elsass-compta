@@ -81,6 +81,7 @@ export default function Hero({
          >
             <ArrowDownCircle
                size={40}
+               strokeWidth={1}
                className="text-black cursor-pointer scale-100 transition-all duration-300 hover:scale-110"
             />
          </div>
