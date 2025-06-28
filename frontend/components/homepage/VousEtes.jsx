@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function VanishText() {
    return (
-      <div className="bg-primary px-4 py-24 text-center md:py-36 overflow-hidden">
+      <section className="bg-primary px-4 py-24 text-center md:py-36 overflow-hidden">
          <h2 className="text-3xl font-medium text-secondary sm:text-4xl md:text-5xl lg:text-6xl">
             Vous êtes
             <AnimatedText
@@ -20,7 +20,7 @@ export default function VanishText() {
                <Link href="/prestations">Découvrez nos services</Link>
             </Button>
          </h2>
-      </div>
+      </section>
    );
 }
 

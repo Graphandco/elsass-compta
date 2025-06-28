@@ -32,7 +32,7 @@ export default async function Home() {
    const valeurs = await getStrapiCollections("valeurs");
 
    return (
-      <div>
+      <>
          <Hero
             lead1={hero_lead1}
             lead2={hero_lead2}
@@ -47,6 +47,6 @@ export default async function Home() {
          />
          <VousEtes />
          <Valeurs valeurs={valeurs} />
-      </div>
+      </>
    );
 }

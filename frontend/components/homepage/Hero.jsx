@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FadeInOnView from "../FadeInOnView";
 import { useEffect, useState } from "react";
+import { ArrowDownCircle } from "lucide-react";
 
 export default function Hero({
    lead1,
@@ -20,6 +21,13 @@ export default function Hero({
          setHeaderHeight(header.offsetHeight);
       }
    }, []);
+
+   const scrollToSection = () => {
+      const section = document.getElementById("prestations");
+      if (section) {
+         section.scrollIntoView({ behavior: "smooth" });
+      }
+   };
    return (
       <section
          className="wrapper pt-10 sm:pt-15"
@@ -67,6 +75,15 @@ export default function Hero({
                <p className="mt-3 sm:mt-0 md:mt-3">{descriptionLast}</p>
             </div>
          </FadeInOnView>
+         <div
+            className="scroll-down mt-12 hidden md:flex justify-center "
+            onClick={scrollToSection}
+         >
+            <ArrowDownCircle
+               size={40}
+               className="text-black cursor-pointer scale-100 transition-all duration-300 hover:scale-110"
+            />
+         </div>
       </section>
    );
 }
