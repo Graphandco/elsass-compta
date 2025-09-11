@@ -10,7 +10,8 @@ export async function POST(req) {
       // 🔎 Debug : vérifie que les données sont bien reçues
       // console.log("Formulaire reçu :", body);
 
-      const { name, email, message } = body;
+      const { name, email, phone, society, clientType, message, privacy } =
+         body;
 
       const { data, error } = await resend.emails.send({
          from: "Site Elsass Compta <site-elsass-compta@graphandco.net>",
@@ -20,7 +21,11 @@ export async function POST(req) {
          react: EmailTemplate({
             name,
             email,
+            phone,
+            society,
+            clientType,
             message,
+            privacy,
          }),
       });
 

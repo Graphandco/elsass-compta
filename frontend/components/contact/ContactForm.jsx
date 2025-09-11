@@ -16,7 +16,10 @@ export default function ContactForm() {
       handleSubmit,
       formState: { errors, isSubmitting },
       reset,
+      watch,
    } = useForm();
+
+   const clientType = watch("clientType");
 
    const onSubmit = async (data) => {
       try {
@@ -103,6 +106,86 @@ export default function ContactForm() {
                   </div>
 
                   <div>
+                     <label htmlFor="phone" className="sr-only">
+                        Téléphone
+                     </label>
+                     <input
+                        type="text"
+                        id="phone"
+                        placeholder="Votre téléphone"
+                        {...register("phone", { required: true })}
+                        className="block w-full border-b border-gray-300 py-2 focus:border-black outline-none"
+                     />
+                     {errors.phone && (
+                        <p className="text-sm text-red-500">
+                           Ce champ est requis
+                        </p>
+                     )}
+                  </div>
+
+                  <div>
+                     <label htmlFor="type" className="text-gray-400">
+                        Vous êtes...
+                     </label>
+                     <ul className="w-full text-gray-500 flex">
+                        <li className="w-full">
+                           <div className="flex items-center">
+                              <input
+                                 id="particulier"
+                                 type="radio"
+                                 value="particulier"
+                                 {...register("clientType", { required: true })}
+                                 className="w-4 h-4 text-primary bg-gray-100 border-gray-300 "
+                              />
+                              <label
+                                 htmlFor="particulier"
+                                 className="w-full py-3 ms-2 text-gray-400"
+                              >
+                                 Particulier
+                              </label>
+                           </div>
+                        </li>
+                        <li className="w-full">
+                           <div className="flex items-center">
+                              <input
+                                 id="professionnel"
+                                 type="radio"
+                                 value="professionnel"
+                                 {...register("clientType", { required: true })}
+                                 className="w-4 h-4 text-primary bg-gray-100 border-gray-300 "
+                              />
+                              <label
+                                 htmlFor="professionnel"
+                                 className="w-full py-3 ms-2 text-gray-400"
+                              >
+                                 Professionnel
+                              </label>
+                           </div>
+                        </li>
+                     </ul>
+                     {errors.clientType && (
+                        <p className="text-sm text-red-500 mt-1">
+                           Veuillez sélectionner un type de client
+                        </p>
+                     )}
+                  </div>
+
+                  {clientType === "professionnel" && (
+                     <div>
+                        <label htmlFor="society" className="sr-only">
+                           Société
+                        </label>
+                        <input
+                           type="text"
+                           id="society"
+                           placeholder="Société"
+                           {...register("society", { required: false })}
+                           className="block w-full border-b border-gray-300 py-2 focus:border-black outline-none"
+                        />
+                     </div>
+                  )}
+
+                  <div>
                      <label htmlFor="message" className="sr-only">
                         Message
                      </label>
@@ -119,6 +202,34 @@ export default function ContactForm() {
                         </p>
                      )}
                   </div>
+
+                  <div className="flex items-center">
+                     <input
+                        id="privacy"
+                        type="checkbox"
+                        {...register("privacy", { required: true })}
+                        className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded  mt-1 relative"
+                     />
+                     <label
+                        htmlFor="privacy"
+                        className="ml-2 mt-1 text-sm text-gray-600"
+                     >
+                        En cochant cette case, j'accepte les termes de la{" "}
+                        <a
+                           href="/politique-de-confidentialite"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-primary underline hover:text-primary/80"
+                        >
+                           politique de confidentialité
+                        </a>
+                     </label>
+                  </div>
+                  {errors.privacy && (
+                     <p className="text-sm text-red-500">
+                        Vous devez accepter la politique de confidentialité
+                     </p>
+                  )}
 
                   <Button
                      type="submit"
