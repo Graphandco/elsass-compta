@@ -7,7 +7,7 @@ export default function PrestationCard({ prestation, bg = "bg-white" }) {
       <Link
          key={prestation.id}
          href={`/prestations/${prestation.slug}`}
-         className={`${bg} block h-full p-5 rounded-lg border border-transparent hover:border-primary transition-all`}
+         className={`${bg} block h-full p-5 rounded-lg border border-transparent hover:border-primary transition-all shadow-md group`}
       >
          <div className="flex items-center justify-between gap-2">
             <Image
@@ -15,11 +15,11 @@ export default function PrestationCard({ prestation, bg = "bg-white" }) {
                alt={prestation.title}
                width={prestation?.icon?.width}
                height={prestation?.icon?.height}
-               className="h-10 w-auto"
+               className="h-10 w-auto group-hover:scale-110 transition-transform duration-300"
             />
-            <ArrowUpRight />
+            <ArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
          </div>
-         <h3 className="text-lg text-primary font-normal mt-3 mb-2">
+         <h3 className="text-lg text-primary font-normal mt-3 mb-2 group-hover:scale-105 origin-left transition-transform duration-300">
             {prestation.title}
          </h3>
          <p className="text-sm">{prestation.short_description}</p>
