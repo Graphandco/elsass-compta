@@ -19,7 +19,7 @@ export default function PrestationCard({ prestation, bg = "bg-white" }) {
             />
             <ArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
          </div>
-         <h3 className="text-lg text-primary font-normal mt-3 mb-2 group-hover:scale-105 origin-left transition-transform duration-300">
+         <h3 className="text-lg text-primary font-normal leading-tight mt-3 mb-2 group-hover:scale-105 origin-left transition-transform duration-300">
             {prestation.title}
          </h3>
          <p className="text-sm">{prestation.short_description}</p>
