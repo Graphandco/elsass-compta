@@ -4,17 +4,17 @@ import Link from "next/link";
 
 export default function Footer() {
    return (
-      <footer className="relative bg-black text-primary-very-light py-10 sm:py-15 md:py-20 overflow-hidden">
+      <footer className="relative bg-black text-primary-very-light pt-10 sm:pt-15 md:pt-20 pb-7 overflow-hidden">
          <Image
             src="/logo-jaune.png"
             alt="Logo"
             width={501}
             height={296}
-            className="absolute -bottom-10 -right-10 opacity-10 rotate-12 "
+            className="absolute -bottom-10 -right-10 opacity-10 rotate-12 pointer-events-none"
          />
-         <div className="wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-20 relative z-10 text-center sm:text-left justify-items-center sm:justify-items-start">
+         <div className="wrapper grid sm:grid-cols-2 md:grid-cols-[4fr_3fr_5fr] gap-10 sm:gap-20 relative z-10 text-center sm:text-left justify-items-center sm:justify-items-start">
             <div className="text-xl sm:text-2xl font-normal text-white">
-               Votre expert-comptable de confiance au cœur de l'Alsace{" "}
+               Votre expert-comptable de confiance au cœur de l'Alsace
                <Image
                   src="/logo-alsace.webp"
                   alt="Logo"
@@ -52,35 +52,84 @@ export default function Footer() {
                   <Mail size={16} /> contact@elsass-compta.fr
                </a>
             </div>
-            {/* Liens */}
-            <div className=" text-neutral-400">
-               <div className="text-xl font-normal text-white mb-3">Liens</div>
-               <Link
-                  className="block hover:text-secondary"
-                  href="/mentions-legales"
-               >
-                  Mentions légales
-               </Link>
-               <Link
-                  className="block hover:text-secondary"
-                  href="/politique-de-confidentialite"
-               >
-                  Politique de confidentialité
-               </Link>
-               <Link
-                  href="https://graphandco.com"
-                  target="blank"
-                  className="flex items-center gap-2 hover:text-secondary"
-               >
-                  <Image
-                     src="/logo-graphandco.svg"
-                     width={20}
-                     height={20}
-                     alt="Graph and Co"
-                  />{" "}
-                  Réalisation Graph and Co
-               </Link>
+            {/* Horaires */}
+            <div className="text-neutral-400 text-center sm:text-left sm:col-span-2 md:col-span-1">
+               <div className="text-xl font-normal text-white mb-3">
+                  Horaires
+               </div>
+               <div>
+                  <div className="grid grid-cols-[70px_auto] gap-2">
+                     <strong className="text-white">Lundi: </strong>
+                     <div>
+                        8<sup>h</sup>30-12<sup>h</sup>00 et 14
+                        <sup>h</sup>00-18<sup>h</sup>00
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div className="grid grid-cols-[70px_auto] gap-2">
+                     <strong className="text-white">Mardi: </strong>
+                     <div>
+                        8<sup>h</sup>30-12<sup>h</sup>00 et sur RDV l'après-midi
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div className="grid grid-cols-[70px_auto] gap-2">
+                     <strong className="text-white">Mercredi: </strong>
+                     <div>
+                        8<sup>h</sup>30-12<sup>h</sup>00 et 14
+                        <sup>h</sup>00-18<sup>h</sup>00
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div className="grid grid-cols-[70px_auto] gap-2">
+                     <strong className="text-white">Jeudi: </strong>
+                     <div>
+                        8<sup>h</sup>30-12<sup>h</sup>00 et 14
+                        <sup>h</sup>00-18<sup>h</sup>00
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div className="grid grid-cols-[70px_auto] gap-2">
+                     <strong className="text-white">Vendredi: </strong>
+                     <div>
+                        8<sup>h</sup>30-12<sup>h</sup>00 et 14
+                        <sup>h</sup>00-18<sup>h</sup>00
+                     </div>
+                  </div>
+               </div>
             </div>
+         </div>
+         {/* Liens */}
+         <div className=" text-neutral-400 text-sm wrapper flex justify-center sm:justify-end items-center gap-x-3 gap-y-1 flex-wrap mt-8">
+            <Link
+               className="block hover:text-secondary"
+               href="/mentions-legales"
+            >
+               Mentions légales
+            </Link>
+            <Link
+               className="block hover:text-secondary"
+               href="/politique-de-confidentialite"
+            >
+               Politique de confidentialité
+            </Link>
+            <Link
+               href="https://graphandco.com"
+               target="blank"
+               className="flex items-center gap-1 hover:text-secondary"
+            >
+               <Image
+                  src="/logo-graphandco.svg"
+                  width={20}
+                  height={20}
+                  alt="Graph and Co"
+               />{" "}
+               Réalisation Graph and Co
+            </Link>
          </div>
       </footer>
    );
