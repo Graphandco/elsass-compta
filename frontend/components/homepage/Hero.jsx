@@ -76,7 +76,7 @@ export default function Hero({
             </div>
          </FadeInOnView>
          <div
-            className="scroll-down mt-12 hidden md:flex justify-center "
+            className="scroll-down mt-12 mb-5 hidden md:flex justify-center "
             onClick={scrollToSection}
          >
             <ArrowDownCircle
