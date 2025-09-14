@@ -7,6 +7,7 @@ import { SiMinutemailer } from "react-icons/si";
 import { AnimatePresence, motion } from "framer-motion";
 import FadeInOnView from "@/components/FadeInOnView";
 import { CheckCircleIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactForm() {
    const [isEmailSent, setIsEmailSent] = useState(false);
@@ -215,14 +216,13 @@ export default function ContactForm() {
                         className="ml-2 mt-1 text-sm text-gray-600"
                      >
                         En cochant cette case, j'accepte les termes de la{" "}
-                        <a
+                        <Link
                            href="/politique-de-confidentialite"
-                           target="_blank"
                            rel="noopener noreferrer"
                            className="text-primary underline hover:text-primary/80"
                         >
                            politique de confidentialité
-                        </a>
+                        </Link>
                      </label>
                   </div>
                   {errors.privacy && (
