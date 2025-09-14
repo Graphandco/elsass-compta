@@ -14,6 +14,7 @@ export default function VanishText() {
                   "Une TPE ou une PME locale",
                   "Un entrepreneur Individuel",
                   "Un professionnel de Santé",
+                  "Un particulier",
                ]}
             />
             <Button asChild variant="secondary" size="lg" className="mt-10">
@@ -25,7 +26,7 @@ export default function VanishText() {
 }
 
 const ONE_SECOND = 1000;
-const WAIT_TIME = ONE_SECOND * 3;
+const WAIT_TIME = ONE_SECOND * 2;
 
 const AnimatedText = ({ phrases }) => {
    const [active, setActive] = useState(0);
