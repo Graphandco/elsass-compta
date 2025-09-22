@@ -49,7 +49,7 @@ const FadeInOnView = ({
    const dynamicAmount = useResponsiveAmount(
       amount,
       responsiveAmount || {
-         sm: 0.3, // Mobile: déclenchement plus précoce
+         sm: 0.2, // Mobile: déclenchement plus précoce
          md: 0.3, // Tablette
          lg: 0.4, // Desktop
          xl: 0.5, // Large desktop
