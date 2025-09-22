@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://elsass-compta.fr
+
+# Sitemaps
+Sitemap: https://elsass-compta.fr/sitemap.xml
