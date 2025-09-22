@@ -2,6 +2,7 @@ import { Jost } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/HeaderWrapper";
 import Footer from "@/components/footer/FooterWrapper";
+import LoadGoogleAnalytics from "@/components/LoadGoogleAnalytics";
 
 const jost = Jost({
    variable: "--font-jost",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="grow grid">{children}</main>
             <Footer />
+            <LoadGoogleAnalytics />
          </body>
       </html>
    );
