@@ -4,6 +4,21 @@ import FadeInOnView from "@/components/FadeInOnView";
 import PrestationCard from "@/components/homepage/PrestationCard";
 import Outils from "@/components/prestations/Outils";
 
+export async function generateMetadata() {
+   return {
+      title: "Nos prestations comptables | Elsass Compta",
+      description:
+         "Découvrez toutes nos prestations d'expertise comptable : tenue de comptabilité, établissement de bilans, déclarations fiscales, paie et conseils personnalisés en Alsace.",
+      openGraph: {
+         title: "Nos prestations comptables | Elsass Compta",
+         description: "Découvrez toutes nos prestations d'expertise comptable : tenue de comptabilité, établissement de bilans, déclarations fiscales, paie et conseils personnalisés en Alsace.",
+         url: "https://elsass-compta.fr/prestations",
+         type: "website",
+         siteName: "Elsass Compta",
+      },
+   };
+}
+
 export default async function Prestations() {
    const prestations = (await getStrapiCollections("prestations")).sort(
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt)

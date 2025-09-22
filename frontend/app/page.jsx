@@ -8,11 +8,20 @@ import VousEtes from "@/components/homepage/VousEtes";
 
 export async function generateMetadata() {
    const home = await getStrapiUnique({ type: "homepage" });
+   const cleanDescription = (home.meta_description || "")
+      .replace(/[#*]/g, "")
+      .slice(0, 160);
+   
    return {
       title: home.meta_title || "Accueil",
-      description: (home.meta_description || "")
-         .replace(/[#*]/g, "")
-         .slice(0, 160),
+      description: cleanDescription,
+      openGraph: {
+         title: home.meta_title || "Elsass Compta - Cabinet d'expertise comptable en Alsace",
+         description: cleanDescription,
+         url: "https://elsass-compta.fr",
+         type: "website",
+         siteName: "Elsass Compta",
+      },
    };
 }
 

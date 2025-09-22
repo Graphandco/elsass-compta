@@ -1,6 +1,50 @@
 import { getStrapiCollectionBySlug } from "@/actions/getStrapiCollections";
 import Image from "next/image";
 import { marked } from "marked";
+import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }) {
+   const { slug } = await params;
+   const actualite = await getStrapiCollectionBySlug("actualites", slug);
+
+   if (!actualite) {
+      return {
+         title: "Actualité non trouvée",
+         description: "Cette actualité n'existe pas ou n'est plus disponible.",
+      };
+   }
+
+   // Utiliser les métadonnées personnalisées ou fallback sur le contenu
+   const metaTitle =
+      actualite.meta_title || `${actualite.title} | Elsass Compta`;
+   const metaDescription =
+      actualite.meta_description ||
+      (actualite.content
+         ? actualite.content.replace(/[#*]/g, "").substring(0, 160)
+         : "Découvrez cette actualité d'Elsass Compta.");
+
+   return {
+      title: metaTitle,
+      description: metaDescription,
+      openGraph: {
+         title: metaTitle,
+         description: metaDescription,
+         url: `https://elsass-compta.fr/actualites/${slug}`,
+         type: "article",
+         siteName: "Elsass Compta",
+         ...(actualite.image && {
+            images: [
+               {
+                  url: `${process.env.NEXT_PUBLIC_STRAPI_URL}${actualite.image.url}`,
+                  width: actualite.image.width,
+                  height: actualite.image.height,
+                  alt: actualite.title,
+               },
+            ],
+         }),
+      },
+   };
+}
 
 export default async function Actualite({ params }) {
    const actualite = await getStrapiCollectionBySlug("actualites", params.slug);

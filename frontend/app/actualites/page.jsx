@@ -7,6 +7,20 @@ import ActuCard from "@/components/ActuCard";
 import { Button } from "@/components/ui/button";
 import FadeInOnView from "@/components/FadeInOnView";
 
+export async function generateMetadata() {
+   return {
+      title: "Actualités comptables et fiscales | Elsass Compta",
+      description: "Découvrez nos dernières actualités en matière de comptabilité, fiscalité et gestion d'entreprise. Conseils et informations pour votre activité en Alsace.",
+      openGraph: {
+         title: "Actualités comptables et fiscales | Elsass Compta",
+         description: "Découvrez nos dernières actualités en matière de comptabilité, fiscalité et gestion d'entreprise. Conseils et informations pour votre activité en Alsace.",
+         url: "https://elsass-compta.fr/actualites",
+         type: "website",
+         siteName: "Elsass Compta",
+      },
+   };
+}
+
 export default async function Actualites() {
    const actualites = (await getStrapiCollections("actualites")).sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)

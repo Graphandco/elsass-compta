@@ -4,11 +4,20 @@ import { getStrapiUnique } from "@/actions/getStrapiUnique";
 
 export async function generateMetadata() {
    const contact = await getStrapiUnique({ type: "contact" });
+   const cleanDescription = (contact.meta_description || "")
+      .replace(/[#*]/g, "")
+      .slice(0, 160);
+   
    return {
       title: contact.meta_title || "Nous contacter",
-      description: (contact.meta_description || "")
-         .replace(/[#*]/g, "")
-         .slice(0, 160),
+      description: cleanDescription,
+      openGraph: {
+         title: contact.meta_title || "Nous contacter | Elsass Compta",
+         description: cleanDescription,
+         url: "https://elsass-compta.fr/contact",
+         type: "website",
+         siteName: "Elsass Compta",
+      },
    };
 }
 

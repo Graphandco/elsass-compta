@@ -396,6 +396,8 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
       'api::actualite.actualite'
     > &
       Schema.Attribute.Private;
+    meta_description: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
@@ -634,6 +636,8 @@ export interface ApiPrestationPrestation extends Struct.CollectionTypeSchema {
       'api::prestation.prestation'
     > &
       Schema.Attribute.Private;
+    meta_description: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     short_description: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
