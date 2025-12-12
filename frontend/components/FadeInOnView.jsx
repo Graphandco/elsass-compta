@@ -10,24 +10,37 @@ const useResponsiveAmount = (baseAmount = 0.4, responsiveAmounts = {}) => {
    useEffect(() => {
       const updateScreenSize = () => {
          const width = window.innerWidth;
+         let newSize = "lg";
          if (width < 640) {
-            setScreenSize("sm");
+            newSize = "sm";
          } else if (width < 768) {
-            setScreenSize("md");
+            newSize = "md";
          } else if (width < 1024) {
-            setScreenSize("lg");
+            newSize = "lg";
          } else {
-            setScreenSize("xl");
+            newSize = "xl";
          }
+         // Ne mettre à jour que si la taille a vraiment changé
+         setScreenSize((prev) => (prev !== newSize ? newSize : prev));
       };
 
       // Initialiser la taille
       updateScreenSize();
 
-      // Écouter les changements de taille
-      window.addEventListener("resize", updateScreenSize);
+      // Debounce le resize pour éviter trop de mises à jour
+      let timeoutId;
+      const handleResize = () => {
+         clearTimeout(timeoutId);
+         timeoutId = setTimeout(updateScreenSize, 150);
+      };
 
-      return () => window.removeEventListener("resize", updateScreenSize);
+      // Écouter les changements de taille
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+         clearTimeout(timeoutId);
+         window.removeEventListener("resize", handleResize);
+      };
    }, []);
 
    // Retourner la valeur appropriée selon la taille d'écran
@@ -45,7 +58,7 @@ const FadeInOnView = ({
 }) => {
    const ref = useRef(null);
 
-   // Utiliser le hook responsif si responsiveAmount est fourni
+   // Utiliser le hook responsif avec debounce pour éviter les mises à jour excessives
    const dynamicAmount = useResponsiveAmount(
       amount,
       responsiveAmount || {
