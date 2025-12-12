@@ -5,12 +5,17 @@ const nextConfig = {
          {
             protocol: "https",
             hostname: "admin.elsass-compta.fr",
-            pathname: "/uploads/**",
+            pathname: "/**",
          },
          {
             protocol: "http",
             hostname: "localhost",
             pathname: "**",
+         },
+         {
+            protocol: "https",
+            hostname: "*.elsass-compta.fr",
+            pathname: "/**",
          },
       ],
    },
