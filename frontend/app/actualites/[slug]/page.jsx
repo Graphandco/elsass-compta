@@ -47,7 +47,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Actualite({ params }) {
-   const actualite = await getStrapiCollectionBySlug("actualites", params.slug);
+   const { slug } = await params;
+   const actualite = await getStrapiCollectionBySlug("actualites", slug);
 
    if (!actualite) return notFound();
 

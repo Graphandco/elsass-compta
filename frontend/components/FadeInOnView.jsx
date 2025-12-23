@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 
 // Hook personnalisé pour détecter la taille de l'écran
@@ -58,7 +58,7 @@ const FadeInOnView = ({
 }) => {
    const ref = useRef(null);
 
-   // Utiliser le hook responsif avec debounce pour éviter les mises à jour excessives
+   // Utiliser le hook responsif si responsiveAmount est fourni
    const dynamicAmount = useResponsiveAmount(
       amount,
       responsiveAmount || {
