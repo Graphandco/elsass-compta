@@ -30,7 +30,7 @@ export default function Hero({
    };
    return (
       <section
-         className="wrapper pt-10 sm:pt-15"
+         className="wrapper pt-10"
          style={{
             minHeight: `calc(100vh - ${headerHeight}px)`,
          }}
