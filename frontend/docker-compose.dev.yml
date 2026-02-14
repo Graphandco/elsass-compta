@@ -1,0 +1,28 @@
+services:
+   app:
+      container_name: elsass-compta-frontend-dev
+      build:
+         context: .
+         dockerfile: Dockerfile.dev
+      restart: unless-stopped
+      ports:
+         - "3004:3004"
+      env_file:
+         - .env
+      volumes:
+         - .:/app
+         - /app/node_modules
+         - /app/.next
+         - nextjs_cache:/app/.next/cache
+      environment:
+         NODE_ENV: development
+         PORT: 3004
+      networks:
+         - web-network
+
+volumes:
+   nextjs_cache:
+
+networks:
+   web-network:
+      external: true

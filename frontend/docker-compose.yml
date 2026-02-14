@@ -1,0 +1,17 @@
+services:
+   app:
+      container_name: elsass-compta-frontend
+      build:
+         context: .
+         dockerfile: Dockerfile
+      restart: unless-stopped
+      ports:
+         - "3004:3004"
+      env_file:
+         - .env
+      networks:
+         - web-network
+
+networks:
+   web-network:
+      external: true
