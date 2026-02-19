@@ -22,7 +22,7 @@ RUN npm ci
 COPY . .
 
 # Build Strapi
-RUN npm run build
+RUN npx strapi build
 
 # Runtime stage
 FROM node:20-alpine
