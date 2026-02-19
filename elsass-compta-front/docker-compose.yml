@@ -5,12 +5,16 @@ services:
          context: .
          dockerfile: Dockerfile
       restart: unless-stopped
-      # ports:
-      #    - "3004:3004"
       env_file:
          - .env
       networks:
          - web-network
+      # Sécurité de base (Hardening)
+      cpus: 0.5
+      mem_limit: 512m
+      read_only: true
+      tmpfs:
+         - /tmp:rw,noexec,nosuid,size=128m
 
 networks:
    web-network:
