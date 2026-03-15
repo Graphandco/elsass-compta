@@ -33,12 +33,12 @@ export default function HeaderNav({ prestations }) {
             <li>
                <Link
                   className={`relative hover:text-secondary ${
-                     pathname === "https://actualites.elsass-compta.fr" ||
+                     pathname === "/actualites" ||
                      pathname.startsWith("/actualites" + "/")
                         ? "text-secondary"
                         : "text-foreground"
                   }`}
-                  href="/actualites"
+                  href="https://actualites.elsass-compta.fr"
                >
                   Actualités
                </Link>
