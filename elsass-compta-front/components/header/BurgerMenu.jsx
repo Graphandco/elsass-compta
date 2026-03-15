@@ -26,7 +26,7 @@ export default function HeaderMenu() {
       },
       {
          title: "Actualités",
-         href: "/actualites",
+         href: "https://actualites.elsass-compta.fr/",
       },
       {
          title: "Contact",
