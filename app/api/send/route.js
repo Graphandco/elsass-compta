@@ -1,4 +1,5 @@
 import { EmailTemplate } from "@/components/email-template";
+import { render } from "@react-email/render";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,19 +16,13 @@ export async function POST(req) {
          );
       }
 
-      const { Resend } = await import("resend");
-      const resend = new Resend(apiKey);
       const body = await req.json();
 
       const { name, email, phone, society, clientType, message, privacy } =
          body;
 
-      const { data, error } = await resend.emails.send({
-         from: "Site Elsass Compta <site-elsass-compta@graphandco.net>",
-         to: ["contact@elsass-compta.fr"],
-         subject:
-            "Nouveau message depuis le formulaire de contact du site Elsass Compta",
-         react: EmailTemplate({
+      const html = await render(
+         EmailTemplate({
             name,
             email,
             phone,
@@ -36,10 +31,27 @@ export async function POST(req) {
             message,
             privacy,
          }),
+      );
+
+      const resendResponse = await fetch("https://api.resend.com/emails", {
+         method: "POST",
+         headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+         },
+         body: JSON.stringify({
+            from: "Site Elsass Compta <site-elsass-compta@graphandco.net>",
+            to: ["contact@graphandco.com"],
+            subject:
+               "Nouveau message depuis le formulaire de contact du site Elsass Compta",
+            html,
+         }),
       });
 
-      if (error) {
-         console.error("Erreur Resend :", error);
+      const data = await resendResponse.json();
+
+      if (!resendResponse.ok) {
+         console.error("Erreur Resend :", data);
          return Response.json({ error: "Erreur d'envoi." }, { status: 500 });
       }
 
