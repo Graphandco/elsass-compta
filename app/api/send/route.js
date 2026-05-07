@@ -1,13 +1,22 @@
 import { EmailTemplate } from "@/components/email-template";
 import { Resend } from "resend";
 
-export async function POST(req) {
-   const resend = new Resend(process.env.RESEND_API_KEY);
-   try {
-      const body = await req.json();
+export const dynamic = "force-dynamic";
 
-      // 🔎 Debug : vérifie que les données sont bien reçues
-      // console.log("Formulaire reçu :", body);
+export async function POST(req) {
+   try {
+      const apiKey = process.env.RESEND_API_KEY;
+      if (!apiKey) {
+         return Response.json(
+            {
+               error: "Configuration serveur incomplète (RESEND_API_KEY manquante).",
+            },
+            { status: 500 },
+         );
+      }
+
+      const resend = new Resend(apiKey);
+      const body = await req.json();
 
       const { name, email, phone, society, clientType, message, privacy } =
          body;
@@ -33,7 +42,7 @@ export async function POST(req) {
          return Response.json({ error: "Erreur d'envoi." }, { status: 500 });
       }
 
-      return Response.json({ success: true });
+      return Response.json({ success: true, data });
    } catch (err) {
       console.error("Erreur serveur :", err);
       return Response.json(
