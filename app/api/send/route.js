@@ -1,6 +1,6 @@
 import { EmailTemplate } from "@/components/email-template";
-import { Resend } from "resend";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req) {
@@ -15,6 +15,7 @@ export async function POST(req) {
          );
       }
 
+      const { Resend } = await import("resend");
       const resend = new Resend(apiKey);
       const body = await req.json();
 
