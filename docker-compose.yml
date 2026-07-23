@@ -1,12 +1,19 @@
 services:
    app:
+      platform: linux/amd64
       container_name: elsass-compta
-      image: ghcr.io/graphandco/elsass-compta:latest
-      # Sans ça, Docker réutilise l’ancienne image locale même si `latest` a été repoussé sur GHCR.
+      image: dockerhub.graphandco.com/elsass-compta:latest
+      build:
+         context: .
+         dockerfile: Dockerfile
+         tags:
+            - dockerhub.graphandco.com/elsass-compta:1.0.0
+            - dockerhub.graphandco.com/elsass-compta:latest
+         args:
+            NEXT_PUBLIC_WP_GRAPHQL: ${NEXT_PUBLIC_WP_GRAPHQL}
+            NEXT_PUBLIC_MATOMO_URL: ${NEXT_PUBLIC_MATOMO_URL}
+            NEXT_PUBLIC_MATOMO_SITE_ID: ${NEXT_PUBLIC_MATOMO_SITE_ID}
       pull_policy: always
-      # build:
-      #    context: .
-      #    dockerfile: Dockerfile
       restart: unless-stopped
       env_file:
          - .env
